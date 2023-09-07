@@ -7,7 +7,8 @@ The result will generally be board vibration. This is when the board bounces bac
 ## Loading
 1. Load up the VESC package. Download from the github folder and Load Custom in VESC Packages.
 2. Check the Safety Tiltback, Startup, Stop, and Specs and change the settings as needed. 
-    * In particular, check the High and Low Voltage Threshold and the Loop Hertz on the Specs tab to make sure they are compatible with your board. 
+    * In particular, check the High and Low Voltage Threshold and the Loop Hertz on the Specs tab to make sure they are compatible with your board.
+3. Good practice with new code is to start the board with your hands first by pushing the footpads with either hand to level and start it. Give it a little acceleration in either direction. It should not be jittery or jumpy.
         
 ## Pitch Tune
 3. Try the default tune first. Surge, traction control and roll control are disabled by default for this version so you can set things up progressively.
