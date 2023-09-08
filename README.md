@@ -1,4 +1,5 @@
 # Trick and Trail VESC Package
+by Mike Silberstein (send questions, comments, requests to izzyvesc@gmail.com)
 
 Trick and Trail Package was developed based on Float Package 1.2 by Surfdado and Niko. It departs from the traditional PID control scheme that is rooted in the original balance robot design. This paradigm is replaced with a user defined, current output curve that is based on board pitch. This allows for a potentially infinite number of throttle/braking curves that gives the user the ability to truly tune the board how they want.
 
