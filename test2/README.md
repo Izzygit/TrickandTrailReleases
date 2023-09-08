@@ -1,8 +1,8 @@
-# Trick and Trail Setup Guide for Test 1
+# Trick and Trail Setup Guide for Test 2
 ## Preface: 
 My goal with this package is to provide the user the ability to tune the board in a more advanced way, but this comes with drawbacks. It is possible to make a Pitch tune that is not ridable. For instance, if you input max motor current (100A for the floatwheel) at .5 degree pitch angle it’s going to be way to sensitive. Similarly, if you tune 20A at .5 degree pitch and 100A at 1 degree, this slope will be too steep. 
 
-The result will generally be board vibration. This is when the board bounces back and forth between over and under reacting at a fast rate. Not particularly dangerous but annoying. The real hurtle will be finding a Pitch tune you like with minimal vibration and then we can filter that vibration out. If you get past the Pitch tune section, all the other features should work well. 
+The result will generally be board vibration. This is when the board bounces back and forth between over and under reacting at a fast rate. Not particularly dangerous but annoying. You will be able to filter out vibration but you should be aware that it could happen and why.
 
 ## Loading
 1. Load up the VESC package. Download from the github folder and Load Custom in VESC Packages.
@@ -20,12 +20,10 @@ The result will generally be board vibration. This is when the board bounces bac
     * To make less nose dip at high demand decrease Pitch 2 (better for trails).
     * To loosen the tune at high demand increase Pitch 2 (better for tricks).
     * If there is too much current increase over a short pitch distance, this will create board vibration. Smoother current demand curves are less likely to create vibration. More on tuning out vibration below.
-1. Test the pitch tune under higher load to see if there is vibration.  Something like uphill grass is good. 
-    * If there is vibration you can tune it out with the Kalman factors. You can observe smooth pitch compared to pitch on the APPUI to see the effect.
-    * Starting from Factor1= 5; Factor2= 0; Factor3=0.1. Increasing factor 3 will dampen the vibration response. When you start getting above 1 you will see the response starts to become delayed. To check the delay do a hard brake. There should be minimal "spring back" from the tail which is the braking overshooting.
-    *  Once Factor3 is at 1 or above start to lower Factor1.
-    * Once Factor1 gets down to around 1 you will want to also reduce Factor3 so that they stay relatively close to each other or else the response can become delayed again.
-    * I have had success with (Factor1= 5; Factor2= 0; Factor3=1) and (Factor1= .5; Factor2= 0; Factor3=0.6)
+1. Test the pitch tune under higher load to see if there is vibration.  Something like uphill grass is good or accelerating flat out on grass. 
+    * If there is vibration decrease Pitch Filter, 0.5 Hz at a time, until you feel that the board is smooth. Around 14-16Hz works for me at 832Hz. You may consider a higher value for 1000Hz loop like 17-19Hz.
+    * If the pitch filter Hz gets below 10, you will likely start to feel the affects of lower responsiveness
+    * To test response I recommend a hard brake. The tail should not spring back up and bounce around. That is overshoot. You might consider a less agressive tune if there is still vibration at this point.
 1. Once satisfied with the pitch tune, move on to the roll tune.
     
 ## Roll Tune
@@ -36,7 +34,7 @@ The result will generally be board vibration. This is when the board bounces bac
 1. Carve around to see how it feels. Downhill is the best to test braking roll. Increase and decrease the factors as you see fit. Observe active Roll Kp on the APPUI page.
 1. After you are satisfied with your roll tune, do some low speed circles to see how it feels before adjusting low speed scaling.
 1. I recommend keeping the ERPM values as 3000 and 750 for now. Increase the Maximum Scaler and do some low speed circles again to feel the effect. 500% will get a little intense. I use 350%.
-1. After you have found your low speed scaling, test it under a higher load for vibration. I recommend engaging your maximum acceleration roll kp while riding uphill grass at low speed. Adjust the Kalman factors on the pitch tune if necessary.
+1. After you have found your low speed scaling, test it under a higher load for vibration. I recommend engaging your maximum acceleration roll kp while riding uphill grass at low speed. Adjust the Pitch Filter on the pitch tune if necessary.
 
 ## Surge
 1. Because surge is dependent on your pitch tune, different settings may be required. First enable surge.
