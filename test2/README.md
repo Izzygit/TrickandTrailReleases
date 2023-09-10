@@ -28,8 +28,8 @@ The result will generally be board vibration. This is when the board bounces bac
     
 ## Roll Tune
 1. For roll I recommend starting with these factors:
-    * Accelerating: kp1 = 0, roll1=5, kp2=0.5, roll2=15, kp3=0, roll3=0
-    * Braking: kp1 = 0, roll1=5, kp2=0.3, roll2=10, kp3=0, roll3=0
+    * Accelerating: kp1 = 0, roll1=5, kp2=0.3, roll2=25, kp3=0, roll3=0
+    * Braking: kp1 = 0, roll1=5, kp2=0.3, roll2=25, kp3=0, roll3=0
     * Leave the low speed scaling as it is for now.
 1. Carve around to see how it feels. Downhill is the best to test braking roll. Increase and decrease the factors as you see fit. Observe active Roll Kp on the APPUI page.
 1. After you are satisfied with your roll tune, do some low speed circles to see how it feels before adjusting low speed scaling.
